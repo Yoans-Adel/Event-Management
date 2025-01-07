@@ -1,0 +1,950 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;600;700&display=swap');
+
+/*@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@0,200;600&display=swap');*/
+/* define main color variable */
+:root {
+    --main-color: #38d652;
+    /* this is the main color we will use */
+}
+
+/* reset some default styles */
+* {
+    font-family: 'Nunito', sans-serif;
+    /* use nunito font for all text */
+    margin: 0;
+    padding: 0;
+    /* remove default margin and padding */
+    box-sizing: border-box;
+    /* make sure padding and border are included in element's total width and height */
+    outline: none;
+    border: none;
+    /* remove default outline and border */
+    text-decoration: none;
+    /* remove default text decoration */
+    text-transform: capitalize;
+    /* make first letter of each word capital */
+    transition: .2s linear;
+    /* smooth transition for changes */
+}
+
+/* set base font size and smooth scrolling */
+html {
+    font-size: 62.5%;
+    /* set base font size to 10px for easier rem calculations */
+    overflow-x: hidden;
+    /* prevent horizontal scrolling */
+    scroll-padding-top: 7rem;
+    /* add padding at the top when scrolling */
+    scroll-behavior: smooth;
+    /* smooth scrolling */
+}
+
+/* customize scrollbar */
+html::-webkit-scrollbar {
+    width: 1rem;
+    /* set scrollbar width */
+}
+
+html::-webkit-scrollbar-track {
+    background: #444;
+    /* set scrollbar track color */
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    /* set scrollbar thumb color */
+    border-radius: 5rem;
+    /* round the scrollbar thumb */
+}
+
+/* set background color for body */
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #222;
+}
+
+/* Snowflake styles */
+.snowflake {
+    position: fixed;
+    /* position */
+    width: 100%;
+    /* full width */
+    height: 100%;
+    /* full height */
+    background: #fff;
+    /* white background */
+    /*var(--main-color);*/
+    border-radius: 50%;
+    /* round shape */
+    opacity: 0;
+    /* hidden by default */
+    filter: blur(1px);
+    /* blur effect */
+    animation: snowfall linear infinite;
+    /* snowfall animation */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    /* white shadow */
+    pointer-events: none;
+    /* no pointer events */
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        /* initial position */
+        opacity: 2;
+        /* visible */
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        /* final position */
+        opacity: 1;
+        /* hidden */
+    }
+}
+
+/* style for sections */
+section {
+    padding: 2rem 9%;
+    /* add padding to sections */
+}
+
+/* style for headings */
+.heading {
+    text-align: center;
+    /* center align text */
+    padding-bottom: 2rem;
+    /* add space below heading */
+    color: #fff;
+    /* white text color */
+    text-transform: uppercase;
+    /* make all letters uppercase */
+    font-size: 4rem;
+    /* large font size */
+}
+
+.heading span {
+    color: var(--main-color);
+    /* main color for span inside heading */
+    text-transform: uppercase;
+    /* make all letters uppercase */
+}
+
+/* style for buttons */
+.btn {
+    margin-top: 1rem;
+    /* add space above button */
+    display: inline-block;
+    /* inline block display */
+    padding: .8rem 3rem;
+    /* padding inside button */
+    font-size: 1.7rem;
+    /* font size for button text */
+    border-radius: .5rem;
+    /* round button corners */
+    background: #666;
+    /* button background color */
+    color: #fff;
+    /* button text color */
+    cursor: pointer;
+    /* pointer cursor on hover */
+    font-weight: 600;
+    /* bold text */
+}
+
+/* hover effect for buttons */
+.btn.hover {
+    background: var(--main-color);
+    /* change background color on hover */
+}
+
+main {
+    padding-top: 4.5rem;
+    /* Adds space below fixed header */
+}
+
+/* style for header */
+.header {
+    position: fixed;
+    /* fix header at top */
+    top: 0;
+    left: 0;
+    right: 0;
+    /* stretch header to full width */
+    z-index: 1000;
+    /* keep header on top */
+    background: rgba(51, 51, 51, 0.95);
+    /* dark background color */
+    display: flex;
+    /* flexbox layout */
+    align-items: center;
+    /* center items vertically */
+    justify-content: space-between;
+    /* space out items */
+    padding: 1.5rem 9%;
+    /* padding inside header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* add shadow */
+    ;
+}
+
+/* style for logo in header */
+.header .logo {
+    font-weight: bolder;
+    /* bold text */
+    color: #fff;
+    /* white text color */
+    font-size: 2.5rem;
+    /* large font size */
+}
+
+.header .logo span {
+    color: var(--main-color);
+    /* main color for span inside logo */
+}
+
+/* style for navigation links in header */
+.header .navbar a {
+    font-size: 1.7rem;
+    /* font size for links */
+    color: #fff;
+    /* white text color */
+    margin-left: 2rem;
+    /* space between links */
+}
+
+.header .navbar a:hover {
+    color: var(--main-color);
+    /* change color on hover */
+}
+
+/* style for menu icon */
+#menu-bars {
+    font-size: 3rem;
+    /* large font size */
+    color: var(--main-color);
+    /*#ed1313; white color */
+    cursor: pointer;
+    /* pointer cursor on hover */
+    display: none;
+    /* hide by default */
+}
+
+/* style for home content */
+.home.content {
+    position: absolute;
+    /* absolute positioning */
+    text-align: center;
+    /* center align text */
+    padding-top: 6rem;
+    /* add space at the top */
+    margin: 2rem auto;
+    /* center content horizontally */
+    max-width: 70rem;
+    /* maximum width */
+}
+
+.home .content h3 {
+    color: #e75c0a;
+    /* white text color */
+    font-size: 4.5rem;
+    /* large font size */
+    text-transform: uppercase;
+    /* make all letters uppercase */
+}
+
+.home .content h3 span {
+    color: var(--main-color);
+    /* main color for span inside heading */
+    text-transform: uppercase;
+    /* make all letters uppercase */
+}
+
+/* style for home slider */
+.home .home-slider .swiper-slide {
+    overflow: hidden;
+    /* hide overflow */
+    border-radius: .5rem;
+    /* round corners */
+    height: 50rem;
+    /* fixed height */
+    width: 35rem;
+    /* fixed width */
+}
+
+.home .home-slider .swiper-slide img {
+    height: 100%;
+    /* full height */
+    width: 100%;
+    /* full width */
+    object-fit: cover;
+    /* cover the area */
+}
+
+/* style for service section */
+.service .box-container {
+    display: grid;
+    /* grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    /* responsive columns */
+    gap: 1.5rem;
+    /* space between items */
+}
+
+.service .box-container .box {
+    border-radius: .5rem;
+    /* round corners */
+    background: #333;
+    /* dark background color */
+    text-align: center;
+    /* center align text */
+    padding: 2.5rem;
+    /* padding inside box */
+}
+
+.service .box-container .box i {
+    height: 6rem;
+    width: 6rem;
+    /* fixed size */
+    line-height: 6rem;
+    /* center icon vertically */
+    border-radius: 50%;
+    /* round icon */
+    font-size: 2.5rem;
+    /* large font size */
+    background: var(--main-color);
+    /* main color background */
+    color: #7f01dc;
+    /* white color */
+}
+
+.service .box-container .box h3 {
+    font-size: 2rem;
+    /* large font size */
+    color: #fff;
+    /* white color */
+    padding: 1rem 0;
+    /* padding inside heading */
+}
+
+
+.service.box-container .box p {
+    font-size: 1.4rem;
+    /* font size for text */
+    color: #eee;
+    /* light text color */
+    line-height: 1.8;
+    /* line height */
+}
+
+/* style for about section */
+.about.row {
+    display: flex;
+    /* flexbox layout */
+    align-items: center;
+    /* center items vertically */
+    flex-wrap: wrap;
+    /* wrap items */
+    gap: 1.5rem;
+    /* space between items */
+}
+
+.about .row .image {
+    flex: 1 1 45rem;
+    /* flexible width */
+    padding: 1rem;
+    /* padding inside image container */
+}
+
+.about .row .image img {
+    width: 100%;
+    /* full width */
+    border-radius: .5rem;
+    /* round corners */
+    border: 1rem solid #333;
+    /* dark border */
+}
+
+.about .row .content {
+    flex: 1 1 45rem;
+    /* flexible width */
+}
+
+.about .row .content h3 {
+    font-size: 3.5rem;
+    /* large font size */
+    color: #fff;
+    /* white text color */
+}
+
+.about .row .content p {
+    font-size: 1.5rem;
+    /* font size for text */
+    color: #7bdcb0;
+    /* light text color */
+    padding: 1rem 0;
+    /* padding inside text */
+    line-height: 2;
+    /* line height */
+}
+
+/* style for gallery section */
+.gallery .box-container {
+    display: grid;
+    /* grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    /* responsive columns */
+    gap: 1.5rem;
+    /* space between items */
+}
+
+.gallery .box-container .box {
+    position: relative;
+    /* relative positioning */
+    border: 1rem solid #333;
+    /* dark border */
+    border-radius: .5rem;
+    /* round corners */
+    height: 25rem;
+    /* fixed height */
+    cursor: pointer;
+    /* pointer cursor on hover */
+    overflow: hidden;
+    /* hide overflow */
+}
+
+.gallery .box-container .box img {
+    height: 100%;
+    /* full height */
+    width: 100%;
+    /* full width */
+    object-fit: cover;
+    /* cover the area */
+}
+
+.gallery .box-container .box:hover img {
+    transform: scale(1.1);
+    /* zoom in on hover */
+    filter: grayscale();
+    /* grayscale effect */
+}
+
+.gallery .box-container .box .title {
+    position: absolute;
+    /* absolute positioning */
+    top: -10;
+    left: 0;
+    right: 0;
+    /* initial position */
+    background: #333;
+    /* dark background */
+    color: #4bb5d8;
+    /* white text color */
+    text-align: center;
+    /* center align text */
+    padding-bottom: 1rem;
+    /* padding inside title */
+    font-size: 2rem;
+    /* font size for title */
+}
+
+.gallery .box-container .box:hover .title {
+    top: 0;
+    /* move title to top on hover */
+}
+
+.gallery .box-container .box .icons {
+    position: absolute;
+    /* absolute positioning */
+    bottom: -5;
+    left: 0;
+    right: 0;
+    /* initial position */
+    background: #333;
+    /* dark background */
+    padding-top: 1rem;
+    /* padding inside icons */
+    text-align: center;
+    /* center align icons */
+}
+
+.gallery .box-container .box:hover .icons {
+    bottom: 0;
+    /* move icons to bottom on hover */
+}
+
+.gallery .box-container .box .icons a {
+    font-size: 2rem;
+    /* font size for icons */
+    margin: .5rem 1rem;
+    /* space between icons */
+    color: #4bb5df;
+    /* white color */
+}
+
+.gallery .box-container .box .icons a:hover {
+    color: var(--main-color);
+    /* change color on hover */
+}
+
+/* style for price section */
+.price .box-container {
+    display: grid;
+    /* grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    /* responsive columns */
+    gap: 1.5rem;
+    /* space between items */
+}
+
+.price .box-container .box {
+    padding: 2rem 0;
+    /* padding inside box */
+    background: #333;
+    /* dark background color */
+    border-radius: .5rem;
+    /* round corners */
+    text-align: center;
+    /* center align text */
+}
+
+.price .box-container .box:hover {
+    transform: scale(1.03);
+    /* zoom in on hover */
+}
+
+.price .box-container .box .title {
+    background: var(--main-color);
+    /* main color background */
+    color: #fff;
+    /* white text color */
+    padding: 1.5rem 0;
+    /* padding inside title */
+    font-size: 2rem;
+    /* font size for title */
+}
+
+.price .box-container .box .amount {
+    color: #fff;
+    /* white text color */
+    padding-top: 2rem;
+    /* space above amount */
+    font-size: 4rem;
+    /* large font size */
+}
+
+.price .box-container .box ul {
+    list-style-type: none;
+    /* remove default list style */
+    padding: 1rem 0;
+    /* padding inside list */
+}
+
+.price .box-container .box ul li {
+    font-size: 1.5rem;
+    /* font size for list items */
+    color: #eee;
+    /* light text color */
+    padding: 1rem 0;
+    /* padding inside list items */
+}
+
+.price .box-container .box ul li i {
+    color: var(--main-color);
+    /* main color for icons */
+    padding-right: 5rem;
+    /* padding inside icons */
+}
+
+/* style for review section */
+
+.review .box {
+    border-radius: 1rem;
+    /* round corners */
+    background: #333;
+    /* dark background color */
+    padding: 2rem;
+    /* padding inside box */
+    position: relative;
+    /* relative positioning */
+    margin: 2rem 0;
+    /**/
+}
+
+.review .box .fa-quote-right {
+    position: absolute;
+    /* absolute positioning */
+    top: 2rem;
+    right: 2rem;
+    /* position at top right */
+    color: var(--main-color);
+    /* main color */
+    font-size: 5rem;
+    /* large font size */
+}
+
+.review .box .user {
+    display: flex;
+    /* flexbox layout */
+    align-items: center;
+    /* center items vertically */
+    gap: 1.5rem;
+    /* space between items */
+    padding-bottom: 1rem;
+    /* space below user info */
+}
+
+.review .box .user img {
+    height: 7rem;
+    /* fixed height */
+    width: 7rem;
+    /* fixed width */
+    border-radius: 50%;
+    /* round image */
+    object-fit: cover;
+    /* cover the area */
+}
+
+.review .box .user h3 {
+    font-size: 2rem;
+    /* font size for user name */
+    color: #eee;
+    /* white text color */
+}
+
+.review .box .user span {
+    font-size: 1.5rem;
+    /* font size for user role */
+    color: var(--main-color);
+    /*#94e10e;*/
+    /* light text color */
+}
+
+.review .box p {
+    line-height: 2;
+    /* line height */
+    color: #fff999;
+    /* light text color */
+    padding: 10rem 0;
+    /* padding inside text */
+    font-size: 1.6rem;
+    /* font size for text */
+}
+
+/* style for contact form */
+.contact-form {
+    max-width: 70rem;
+    /* maximum width */
+    margin: 1rem auto;
+    /* center form horizontally */
+    text-align: center;
+    /* center align text */
+}
+
+.contact form .inputBox {
+    display: flex;
+    /* flexbox layout */
+    justify-content: space-between;
+    /* space out items */
+    flex-wrap: wrap;
+    /* wrap items */
+}
+
+.contact form .inputBox input,
+.contact form textarea {
+    width: 100%;
+    /* full width */
+    background: #333;
+    /* dark background color */
+    border-radius: .5rem;
+    /* round corners */
+    padding: 1rem;
+    /* padding inside input */
+    margin: .7rem 0;
+    /* space between inputs */
+    font-size: 1.5rem;
+    /* font size for input text */
+    color: #fff;
+    /* white text color */
+    text-transform: none;
+    /* no text transformation */
+}
+
+.contact form .inputBox input::placeholder,
+.contact form textarea::placeholder {
+    color: #fff;
+    /* light placeholder color */
+    text-transform: capitalize;
+    /* capitalize placeholder text */
+}
+
+.contact form .inputBox input:focus,
+.contact form textarea:focus {
+    background: #505050;
+    /* change background color on focus */
+}
+
+.contact form .inputBox input {
+    width: 49%;
+    /* half width for inputs */
+}
+
+.contact form textarea {
+    resize: none;
+    /* disable resizing */
+}
+
+/* footer section */
+.footer {
+    background: #111;
+    /* dark background for footer */
+}
+
+.footer .box-container {
+    display: grid;
+    /* use grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    /* responsive columns */
+    gap: 1.5rem;
+    /* space between items */
+}
+
+.footer .box-container .box h3 {
+    font-size: 2.5rem;
+    /* large font size */
+    padding: 1rem 0;
+    /* space around text */
+    color: #b75014;
+    /* white text color */
+}
+
+.footer .box-container .box a {
+    display: block;
+    /* make links block elements */
+    font-size: 1.5rem;
+    /* medium font size */
+    padding: 1rem 0;
+    /* space around links */
+    color: #eee;
+    /* light gray text color */
+}
+
+.footer .box-container .box a i {
+    padding-right: .5rem;
+    /* space to the right of icons */
+    color: var(--main-color);
+    /* main color for icons */
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 1.5rem;
+    /* more space on hover */
+    color: #fff;
+    /* white color on hover */
+}
+
+.footer .credit {
+    text-align: center;
+    /* center text */
+    border-top: .1rem solid #222;
+    /* thin top border */
+    color: #eee;
+    /* white text color */
+    padding: 2rem;
+    /* space around text */
+    padding-top: 2.5rem;
+    /* extra space on top */
+    margin-top: 1rem;
+    /* space above element */
+    font-size: 2rem;
+    /* large font size */
+}
+
+.footer .credit span {
+    color: var(--main-color);
+    /* main color for span */
+}
+
+/* theme toggler section */
+.theme-toggler {
+    position: fixed;
+    /* fixed position on screen */
+    top: 10rem;
+    right: -20rem;
+    /* position from top and right */
+    background: #333;
+    /* dark background */
+    z-index: 1000;
+    /* high z-index to stay on top */
+    width: 20rem;
+    /* fixed width */
+    text-align: center;
+    /* center text */
+}
+
+.theme-toggler.active {
+    right: 0;
+    /* position from right */
+}
+
+/*
+.theme-toggler:hover{
+    top:10rem; right: 0; /* position from top and right 
+    transition: right .5s; /* smooth transition 
+}*/
+
+.theme-toggler h3 {
+    color: #5250ba;
+    /* white text color */
+    padding: 1rem 0;
+    /* space around text */
+    font-size: 2rem;
+    /* large font size */
+}
+
+.theme-toggler .buttons {
+    display: flex;
+    /* use flexbox layout */
+    justify-content: center;
+    /* center buttons */
+    flex-wrap: wrap;
+    /* wrap buttons to new lines */
+    gap: 1rem;
+    /* space between buttons */
+    padding: 1rem;
+    /* space around buttons */
+}
+
+.theme-toggler .buttons .theme-btn {
+    height: 5rem;
+    /* fixed height */
+    width: 5rem;
+    /* fixed width */
+    border-radius: 50%;
+    /* round buttons */
+    cursor: pointer;
+    /* pointer cursor on hover */
+}
+
+.theme-toggler .toggle-btn {
+    position: absolute;
+    /* absolute position */
+    top: 0;
+    left: -5.9rem;
+    /* position from top and left */
+    padding: 1.3rem 1.5rem;
+    /* space around button */
+    background: #333;
+    /* dark background */
+    cursor: pointer;
+    /* pointer cursor on hover */
+}
+
+.theme-toggler .toggle-btn i {
+    color: #5250ba;
+    /* white icon color */
+    font-size: 3rem;
+    /* large icon size */
+    animation: spin 4s linear infinite;
+    /* spinning animation */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(360deg);
+        /* full rotation */
+    }
+}
+
+/* media queries for responsive design */
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+        /* smaller font size */
+    }
+
+    .header {
+        padding: 1rem 1rem;
+        /* space around header */
+    }
+
+    section {
+        padding: 2rem;
+        /* space around sections */
+    }
+}
+
+@media (max-width:768px) {
+    #menu-bars {
+        display: initial;
+        /* show menu bars */
+    }
+
+    .header .navbar {
+        position: absolute;
+        /* absolute position */
+        top: 100%;
+        left: 0;
+        right: 0;
+        /* position from top, left, and right */
+        border-top: .1rem solid #222;
+        /* thin top border */
+        background: #333;
+        /* dark background */
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        /* initial clip path */
+        transition: clip-path 0.3s ease;
+        /* smooth transition */
+    }
+
+    .header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        /* clip path when active */
+    }
+
+    .fa-times {
+        transform: rotate(180deg);
+        /* rotate icon */
+        transition: transform 0.3s ease;
+        /* smooth rotation */
+    }
+
+    .header .navbar a {
+        display: flex;
+        /* use flexbox layout */
+        background: #222;
+        /* dark background */
+        border-radius: .5rem;
+        /* rounded corners */
+        padding: 1.3rem;
+        /* space around links */
+        margin: 1.3rem;
+        /* space around links */
+        font-size: 2rem;
+        /* large font size */
+    }
+
+    .home .content h3 {
+        font-size: 4rem;
+        /* very large font size */
+    }
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+        /* even smaller font size */
+    }
+
+    .home .home-slider .swiper-slide {
+        width: 20rem;
+        /* fixed width for slides */
+    }
+
+    .contact form .inputBox input {
+        width: 100%;
+        /* full width for inputs */
+    }
+}
